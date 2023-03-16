@@ -1,0 +1,129 @@
+body{
+  font-family:'Poppins',sans-serif;
+  /*Larugra maxíma de 1280px, e com max-width a tela adaptavél*/
+  max-width: 1280px;  /*aqui 40min*/
+  /* auto: O navegador seleciona uma margem adequada para utilizar. Em alguns casos pode ser utilizado para centralizar o elemento. */
+  margin: 0 auto;
+}
+/* main:after: isso cria um pisseudo elemento. */
+main:after{
+  content: '';
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+  z-index: -1;
+}
+.conteudo{
+  /* Quando colocamos essa propriedade em um elemento, esse elemento se torna um flex container, a partir daí podemos manipular todos os elementos filhos desse flex container com propriedades novas. */
+  display: flex;
+  /* Deixa os elementos um abaixo do outro como colulunas. */
+  flex-direction: column;
+  /*min-height: Define a altura mínima de um determinado elemento. Ele impede que o valor usado da propriedade height se torne menor que o valor especificado para min-height.  */
+  /*100vh é toda altura visível do seu navegador ou da tela do dispositivo. */
+  min-height: 100vh;
+  /*justify-content: define como o navegador distribui o espaço entre e ao redor dos itens de conteúdo ao longo do eixo principal de um contêiner flexível */
+  justify-content: space-evenly;
+}
+/*.informacoes .logo: acessa somente a class (logo) que está dentro da class pai/informacoes.*/
+.informacoes .logo{
+  max-width: 350px;
+  /*filter: aplica efeitos gráficos como desfoque ou mudança de cor a um elemento.*/
+  /*invert() é uma função que inverte as amostras de cores na imagem de entrada. */
+  filter: invert(1);
+  margin-bottom: 80px;
+}
+.informacoes .descricao{ 
+  /*(%) vai se basear na largura do pai, diferente do vh/vw que se basea na largura da tela.*/
+  width: 49%;
+  font-size: 24px;
+  color: #ffffff;
+  /*espaço entre linhas*/
+  line-height: 30px;
+}
+.botoes-carrossel{
+  display: flex;
+  justify-content: center;
+  /* gap: define os espaços entre as linhas e colunas. */
+  gap: 20px;
+}
+.botoes-carrossel .botao{
+  background-color: #ffffff;
+  width: 15px;
+  height: 15px;
+  /*border-radius: define como bordas arredondadas são. A curva de cada esquina é definida usando um ou dois raios */
+  border-radius: 50% ;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-color: #ffffff;
+}
+/*.botao.selecionado aqui não tem espaço pq são duas class em uma tag só.  */
+.botoes-carrossel .botao.selecionado{
+  background-color: #1d8346;
+}
+.menu-lateral{
+  /*fixed:O elemento é removido do fluxo normal de documentos e nenhum espaço é criado para o elemento no layout da página. */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+  display: flex;
+  /*justify-content Já vem por padrão alinhado em  row/linhas na horizontal*/
+  justify-content: center ;
+  /* Alinhamento na vertical */
+  align-items: center;
+  min-height: 100vh;
+}
+.menu-lateral ul{
+  display: flex;
+  flex-direction: column;
+  /* Espaço entre linhas. */
+  gap: 15px;
+}
+.menu-lateral .icone{
+  width: 30px;
+  filter: invert(1);
+  /*ease-in-out: Faz uma suave animação no icone, 0.3s tempo de animação.*/
+  transition: 0.3s ease-in-out;
+}
+/*hover: O elemento modificado ao passar o mouse em cima */
+.menu-lateral .icone:hover{
+  /* scale() Aumenta o tamanho do elemento */
+  transform: scale(1.5);
+}
+.carrossel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Z-index especifica a ordem da pilha de um elemento do anúncio. Um elemento com número de ordem de empilhamento superior será exibido à frente de outro com número inferior.*/
+  z-index: -1;
+}
+.carrossel .imagem{
+  width: 100%;
+  height: 100vh;
+  /*object-fit: especifica como o conteúdo de um elemento substituído deve ser ajustado à caixa estabelecida pela altura e largura usadas. */
+  /* cover: O conteúdo substituído é dimensionado para manter sua proporção e preencher toda a caixa de conteúdo do elemento: seu tamanho de objeto concreto é resolvido como uma restrição de capa contra a largura e a altura usadas do elemento. */
+  object-fit: cover;
+  /* Esconde os elementos */
+  display: none;
+  animation: mudarImagem 0.7s ;
+}
+.carrossel .imagem.ativa{
+  /*O elemento gera uma caixa de elemento de bloco, gerando quebras de linha antes e depois do elemento quando no fluxo normal.*/
+  display: block;
+}
+/*Quando a animação(mudarImagem) for acionada, o @keyframes cria uma animação ao passar uma imagem.*/
+@keyframes mudarImagem{
+/* from: seria o estado inicial do efeito */
+ from{
+  /*opacity: especifica a transparência de um elemento, isto é, o grau no qual o background atrás do elemento é sobreposto. */
+    opacity: 0.85;
+ }
+ /* to: seria o estado final do efeito */
+ to{
+    opacity: 1;
+ }
+}

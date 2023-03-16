@@ -1,0 +1,20 @@
+/* O arquivo reset é para resetar todos os etilos que não quero. */
+
+/*(*)Seletor, que seleciona todas as tags do html.*/
+*{
+ /*Margem a esquerda das tags igual a 0*/
+  margin: 0;
+  /*(padding): define uma distância entre o conteúdo de um elemento e suas bordas. */
+  padding: 0;
+  /*O box-sizing com o valor border-box faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura.*/
+  box-sizing: border-box;
+}
+
+ul{
+  /* Estilo da lista; none é nehnhum estilo*/
+  list-style: none;
+}
+a{
+  /*text-decoration: é usada para definir a formatação de underline , overline , line-through ou blink . */
+  text-decoration: none;
+}
